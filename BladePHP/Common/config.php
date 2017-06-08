@@ -8,6 +8,7 @@ $GLOBALS  = [
 		'password'  => 'root',
 		'database'  => 'yytester',
         'charset'   => 'utf8',
+        'collation' => 'utf8_unicode_ci',
 		'prefix'    => ''
     ],
 
