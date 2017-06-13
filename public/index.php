@@ -1,20 +1,7 @@
 <?php
-use Illuminate\Container\Container;
-use Illuminate\Database\Capsule\Manager as Capsule;
-
 ini_set('display_errors','On');
-require_once(__DIR__.'/../BladePHP/Blade.php');
 require_once(__DIR__ . '/../vendor/autoload.php');
-$capsule = new Capsule;
-
-// 创建链接
-$capsule->addConnection($GLOBALS['db']);
-
-// 设置全局静态可访问DB
-$capsule->setAsGlobal();
-
-// 启动Eloquent
-$capsule->bootEloquent();
+require_once(__DIR__.'/../BladePHP/Blade.php');
 
 $uri = $_SERVER['REQUEST_URI'];
 $query_str = $_SERVER['QUERY_STRING'];

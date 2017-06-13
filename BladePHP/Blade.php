@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Container\Container;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 session_start();
 ini_set('display_errors','Off');
@@ -10,17 +12,14 @@ require_once(BLADEPHP.'Common/constant.php');
 require_once(BLADEPHP.'Common/config.php');
 require_once(BLADEPHP.'Common/functions.php');
 
-/**
-function __autoload($obj) {
-	$obj = str_replace('\\', '/', $obj); 
-    $obj_file = ROOT . $obj . ".php";
-    if(is_file($obj_file)) {
-        require_once($obj_file);
-    }else {
-        $obj_file = BLADEPHP . $obj . ".class.php";
-        if(is_file($obj_file)) {
-            require_once($obj_file);
-        }
-    }
-}
-**/
+$capsule = new Capsule;
+
+// 创建链接
+$capsule->addConnection($GLOBALS['db']);
+
+// 设置全局静态可访问DB
+$capsule->setAsGlobal();
+
+// 启动Eloquent
+$capsule->bootEloquent();
+
