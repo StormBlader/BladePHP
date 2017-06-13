@@ -17,7 +17,10 @@ $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
 $uri = $_SERVER['REQUEST_URI'];
-$uri = ltrim($uri, '/');
+$query_str = $_SERVER['QUERY_STRING'];
+$uri = rtrim($uri, '?' . $query_str);
+$uri = trim($uri, '/');
+
 if(empty($uri)) {
     $controller = 'App\\Controller\\IndexController';
     $action = 'index';
