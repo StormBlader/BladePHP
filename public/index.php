@@ -29,6 +29,7 @@ if(empty($uri)) {
     $action = !isset($uriArr[1]) || is_null($uriArr[1]) ? 'index' : $uriArr[1];
 }
 
-$controller_obj = getInstance($controller);
-$controller_obj->$action();
-
+if(class_exists($controller)) {
+    $controller_obj = getInstance($controller);
+    $controller_obj->$action();
+}
