@@ -3,8 +3,8 @@ use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 ini_set('display_errors','On');
-require_once(__DIR__.'/BladePHP/Blade.php');
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__.'/../BladePHP/Blade.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
 $capsule = new Capsule;
 
 // 创建链接
