@@ -5,7 +5,7 @@ require_once(__DIR__.'/../BladePHP/Blade.php');
 
 $uri = $_SERVER['REQUEST_URI'];
 $query_str = $_SERVER['QUERY_STRING'];
-$uri = rtrim($uri, '?' . $query_str);
+$uri = str_replace('?' . $query_str, '', $uri);
 $uri = trim($uri, '/');
 
 if(empty($uri)) {
