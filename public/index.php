@@ -1,11 +1,11 @@
 <?php
-ini_set('display_errors','On');
+define('isInSite',true);
 require_once(__DIR__ . '/../vendor/autoload.php');
+ini_set('display_errors','On');
 require_once(__DIR__.'/../BladePHP/Blade.php');
+if ( ! defined('isInSite')) die('No Access');
 
-$uri = $_SERVER['REQUEST_URI'];
-$query_str = $_SERVER['QUERY_STRING'];
-$uri = str_replace('?' . $query_str, '', $uri);
+$uri = isset($_GET['_url']) ? $_GET['_url'] : '';
 $uri = trim($uri, '/');
 
 if(empty($uri)) {
@@ -23,3 +23,4 @@ if(class_exists($controller)) {
     $controller_obj = getInstance($controller);
     $controller_obj->$action();
 }
+
