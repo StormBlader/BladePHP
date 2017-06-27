@@ -1,8 +1,7 @@
 <?php
 namespace App\Model;
-use Illuminate\Database\Eloquent\Model;
 
-class ConfigModel extends Model
+class ConfigModel extends BaseModel
 {
     protected $table = 'config';
 }
