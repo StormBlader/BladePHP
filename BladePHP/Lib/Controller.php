@@ -20,7 +20,7 @@ Class Controller
             $this->_initialize();
         }
 
-        self::$_request = array_unique(array_merge($_GET, $_POST));
+        self::$_request = array_merge($_GET, $_POST);
 	}
 
     public function getRequest($key, $default = null)
